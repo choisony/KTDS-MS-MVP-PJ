@@ -131,13 +131,11 @@ public class Person {
 az login
 
 2. 리소스 그룹 생성
-bash# 리소스 그룹 생성
 az group create \
   --name "user21-rg" \
   --location "Sweden Central"
 
 3. Azure OpenAI 서비스 생성
-bash# OpenAI 서비스 생성
 az cognitiveservices account create \
   --name "user21-openai-002" \
   --resource-group "user21-rg" \
@@ -147,7 +145,6 @@ az cognitiveservices account create \
   --custom-domain "user21-openai-001"
 
 4. GPT-4.1 모델 배포
-bash# GPT-4.1 모델 배포 (Standard)
 az cognitiveservices account deployment create \
   --resource-group "user21-rg" \
   --account-name "user21-openai-001" \
