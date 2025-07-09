@@ -10,6 +10,7 @@ Azure OpenAI를 활용하여 C# 코드를 Java로 변환하는 도구입니다.
 - **변환 분석**: 상세한 변환 노트 및 경고사항 제공
 - **결과 다운로드**: 개별 파일 또는 전체 ZIP 다운로드
 
+
 ## 설치 및 실행
 
 ### 1. 프로젝트 설정
@@ -125,7 +126,7 @@ public class Person {
 ```
 
 ## 🔧 Azure 배포
-
+'''bash
 1. 사전 준비
 az login
 
@@ -155,7 +156,7 @@ az cognitiveservices account deployment create \
   --model-version "2024-12-17" \
   --model-format "OpenAI" \
   --scale-type "Standard"
-
+'''
 
 ## 📊 성능 및 제한사항
 
