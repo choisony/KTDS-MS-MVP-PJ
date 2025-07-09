@@ -1,4 +1,4 @@
-# 🔄 C# to Java 코드변환 및 분석 AI Agent
+# C# to Java 코드변환 및 분석 AI Agent
 
 Azure OpenAI를 활용하여 C# 코드를 Java로 변환하는 도구입니다.
 
@@ -74,13 +74,13 @@ streamlit run app.py
 ## 변환 기능
 
 ### 지원하는 변환:
-- ✅ **Properties** → getter/setter 메서드
-- ✅ **LINQ** → Stream API
-- ✅ **string** → String
-- ✅ **var** → 명시적 타입
-- ✅ **PascalCase** → camelCase
-- ✅ **using statements** → try-with-resources
-- ✅ **async/await** → CompletableFuture
+- **Properties** → getter/setter 메서드
+- **LINQ** → Stream API
+- **string** → String
+- **var** → 명시적 타입
+- **PascalCase** → camelCase
+- **using statements** → try-with-resources
+- **async/await** → CompletableFuture
 
 ### 변환 예시:
 **C# 입력:**
@@ -158,7 +158,7 @@ az cognitiveservices account deployment create \
   --scale-type "Standard"
 ```
 
-## 📊 성능 및 제한사항
+## 성능 및 제한사항
 
 ### 성능:
 - **변환 속도**: 평균 3-5초/파일
