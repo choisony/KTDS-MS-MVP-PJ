@@ -126,8 +126,6 @@ public class Person {
 
 ## 🔧 Azure 배포
 
-
-```bash
 1. 사전 준비
 az login
 
@@ -157,7 +155,7 @@ az cognitiveservices account deployment create \
   --model-version "2024-12-17" \
   --model-format "OpenAI" \
   --scale-type "Standard"
-```
+
 
 ## 📊 성능 및 제한사항
 
