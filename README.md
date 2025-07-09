@@ -1,22 +1,22 @@
 # 🔄 C# to Java 코드변환 및 분석 AI Agent
 
-Azure OpenAI를 활용한 간단하고 실용적인 C# 코드를 Java로 변환하는 도구입니다.
+Azure OpenAI를 활용하여 C# 코드를 Java로 변환하는 도구입니다.
 
-## ✨ 주요 기능
+## 주요 기능
 
-- 🤖 **AI 기반 변환**: GPT-4.1을 활용한 지능형 C# → Java 변환
-- 📁 **다중 파일 지원**: .cs 파일 및 프로젝트 .zip 파일 처리
-- ⚡ **단일 코드 변환**: 코드 입력 즉시 변환 결과 확인
-- 📊 **변환 분석**: 상세한 변환 노트 및 경고사항 제공
-- 💾 **결과 다운로드**: 개별 파일 또는 전체 ZIP 다운로드
+- **AI 기반 변환**: GPT-4.1 모델을 활용하여 C# → Java 변환
+- **다중 파일 지원**: .cs 파일 및 프로젝트 .zip 파일 처리
+- **단일 코드 변환**
+- **변환 분석**: 상세한 변환 노트 및 경고사항 제공
+- **결과 다운로드**: 개별 파일 또는 전체 ZIP 다운로드
 
-## 🚀 설치 및 실행
+## 설치 및 실행
 
 ### 1. 프로젝트 설정
 ```bash
 # 저장소 클론
 git clone <your-repo-url>
-cd csharp-java-converter
+cd <your-project>
 
 # 가상환경 생성
 python -m venv venv
@@ -50,7 +50,7 @@ streamlit run app.py
 1. **파일 변환** 탭 선택
 2. C# 파일(.cs) 또는 프로젝트(.zip) 업로드
 3. 변환 옵션 설정 (사이드바)
-4. "🚀 변환 시작" 버튼 클릭
+4. "변환 시작" 버튼 클릭
 5. 결과 확인 및 다운로드
 
 ### 2. 변환 결과 분석
@@ -61,7 +61,7 @@ streamlit run app.py
 ### 3. 단일 코드 변환
 1. **단일 코드 변환** 탭 선택
 2. 왼쪽에 C# 코드 입력
-3. "⚡ 즉시 변환" 버튼 클릭
+3. "즉시 변환" 버튼 클릭
 4. 오른쪽에서 Java 변환 결과 확인
 
 ### 4. 코드 분석
@@ -70,7 +70,7 @@ streamlit run app.py
 3. "코드 분석시작" 버튼 클릭
 4. 오른쪽에서 코드 분석 결과 확인
 
-## 🎯 변환 기능
+## 변환 기능
 
 ### 지원하는 변환:
 - ✅ **Properties** → getter/setter 메서드
@@ -126,26 +126,37 @@ public class Person {
 
 ## 🔧 Azure 배포
 
-### Azure Web App에 배포:
+
 ```bash
-# Azure CLI 로그인
+1. 사전 준비
 az login
 
-# 리소스 그룹 생성
-az group create --name csharp-java-converter-rg --location "East US"
+2. 리소스 그룹 생성
+bash# 리소스 그룹 생성
+az group create \
+  --name "user21-rg" \
+  --location "Sweden Central"
 
-# Web App 생성
-az webapp create \
-  --resource-group csharp-java-converter-rg \
-  --plan myAppServicePlan \
-  --name csharp-java-converter \
-  --runtime "PYTHON|3.9"
+3. Azure OpenAI 서비스 생성
+bash# OpenAI 서비스 생성
+az cognitiveservices account create \
+  --name "user21-openai-002" \
+  --resource-group "user21-rg" \
+  --location "Sweden Central" \
+  --kind "OpenAI" \
+  --sku "S0" \
+  --custom-domain "user21-openai-001"
 
-# 환경 변수 설정
-az webapp config appsettings set \
-  --resource-group csharp-java-converter-rg \
-  --name csharp-java-converter \
-  --settings OPENAI_API_KEY="your-key" AZURE_ENDPOINT="your-endpoint"
+4. GPT-4.1 모델 배포
+bash# GPT-4.1 모델 배포 (Standard)
+az cognitiveservices account deployment create \
+  --resource-group "user21-rg" \
+  --account-name "user21-openai-001" \
+  --deployment-name "gpt4.1" \
+  --model-name "gpt-4.1" \
+  --model-version "2024-12-17" \
+  --model-format "OpenAI" \
+  --scale-type "Standard"
 ```
 
 ## 📊 성능 및 제한사항
